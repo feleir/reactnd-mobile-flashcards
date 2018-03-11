@@ -1,4 +1,4 @@
-const defaultQuizes = {
+export default defaultDecks = {
     React: {
       title: 'React',
       questions: [
@@ -22,13 +22,3 @@ const defaultQuizes = {
       ]
     }
   }
-
-const quizReducer = (state = defaultQuizes, action) => {
-    const { type } = action
-    switch(type) {
-        default: 
-        return state
-    }
-}
-
-export default quizReducer
