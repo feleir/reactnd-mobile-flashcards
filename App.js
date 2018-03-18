@@ -8,6 +8,7 @@ import decksReducer from './reducers'
 
 import Navigator from './components/Navigator'
 import AppStatusBar from './components/AppStatusBar'
+import { setLocalNotification } from './utils/notifications'
 
 const store = createStore(
   decksReducer,
@@ -15,6 +16,13 @@ const store = createStore(
 )
 
 export default class App extends React.Component {
+  componentDidMount() {
+    const today = new Date();
+    today.setMinutes(today.getMinutes() + 1);
+
+    setLocalNotification(today);
+  }
+
   render() {
     return (
       <Provider store={store}>
@@ -31,4 +39,4 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   }
-});
+})

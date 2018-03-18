@@ -13,5 +13,8 @@ export default styles = StyleSheet.create({
         padding: 20,
         borderBottomColor: lightGray,
         borderBottomWidth: 5
+    },
+    addButton: {
+      marginRight: 10
     }
   })

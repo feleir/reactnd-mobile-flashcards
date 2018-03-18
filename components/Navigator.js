@@ -1,9 +1,12 @@
+import React from 'react'
 import { StackNavigator } from 'react-navigation'
+import { FontAwesome, Ionicons } from '@expo/vector-icons'
 
 import { white, black } from '../utils/colors'
 import Decks from './Decks'
 import Deck from './Deck'
 import AddQuestion from './AddQuestion'
+import Quiz from './Quiz'
 
 const navigationOptions = {
     headerTintColor: white,
@@ -16,7 +19,7 @@ export default StackNavigator(
     {
         Decks: { 
             screen: Decks, 
-            navigationOptions 
+            navigationOptions
         },
         Deck: { 
             screen: Deck, 
@@ -25,6 +28,10 @@ export default StackNavigator(
         AddQuestion: { 
             screen: AddQuestion, 
             navigationOptions 
+        },
+        Quiz: {
+            screen: Quiz,
+            navigationOptions
         }
     },
     { 

@@ -1,30 +1,32 @@
 import { StyleSheet } from 'react-native'
-import { lightBlack, gray, purple } from '../../utils/colors'
+import { lightBlack, red } from '../../utils/colors'
 
 export default styles = StyleSheet.create({
     view: {
         flex: 1,
-        paddingBottom: 50,
+        paddingVertical: 50,
         paddingHorizontal: 50
     },
-    deck: {
+    card: { 
+        flex: 1 
+    },
+    cardTextView: {
         flex: 1,
         justifyContent: 'center'
     },
-    title: {
+    text: {
+        fontSize: 16,
         alignSelf: 'stretch',
         textAlign: 'center',
-        fontSize: 40,
         color: lightBlack
     },
-    cards: {
-        alignSelf: 'stretch',
-        textAlign: 'center',
-        fontSize: 25,
-        color: gray,
-        marginTop: 5
+    flipButton: {
+        color: red
     },
-    separatedButton: {
+    header: {
+        fontSize: 40
+    },
+    separatedItem: {
         marginTop: 10
     }
 })

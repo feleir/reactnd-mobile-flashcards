@@ -36,19 +36,20 @@ const setLocalNotification = (time) => {
         .then(JSON.parse)
         .then(data => {
         if (data !== null) {
-            return;
+            return
         }
+        
+        Permissions.askAsync(Permissions.NOTIFICATIONS)
+            .then(({ status }) => {
+                if (status !== 'granted') {
+                    return
+                }
 
-        Permissions.askAsync(Permissions.NOTIFICATIONS).then(({ status }) => {
-            if (status !== 'granted') {
-            return;
-            }
-
-            Notifications.cancelAllScheduledNotificationsAsync();
-            scheduleNotification(time)  
-            AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true));
-        })
+                Notifications.cancelAllScheduledNotificationsAsync();
+                scheduleNotification(time)  
+                AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true))
+            })
     })
   }
 
-export { fetchDecks, addOrUpdateDeck }
+export { setLocalNotification, clearLocalNotification }
