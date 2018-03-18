@@ -8,8 +8,8 @@ export default ListItemView = ({ deck, onPress }) => {
             style={styles.listItem}
             onPress={() => onPress()}
         >
-            <Text>{deck.title}</Text>
-            <Text>{deck.questions} cards.</Text>
+            <Text style={styles.listItemTitle}>{deck.title}</Text>
+            <Text style={styles.listItemQuestionCount}>{deck.questions} cards.</Text>
         </TouchableOpacity>
     )
 }

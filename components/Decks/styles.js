@@ -12,7 +12,13 @@ export default styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 20,
         borderBottomColor: lightGray,
-        borderBottomWidth: 5
+        borderBottomWidth: 1,
+    },
+    listItemTitle: {
+      fontSize: 40
+    },
+    listItemQuestionCount: {
+      fontSize:25
     },
     addButton: {
       marginRight: 10

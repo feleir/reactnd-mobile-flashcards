@@ -7,6 +7,7 @@ import Decks from './Decks'
 import Deck from './Deck'
 import AddQuestion from './AddQuestion'
 import Quiz from './Quiz'
+import AddDeck from './AddDeck'
 
 const navigationOptions = {
     headerTintColor: white,
@@ -31,6 +32,10 @@ export default StackNavigator(
         },
         Quiz: {
             screen: Quiz,
+            navigationOptions
+        },
+        AddDeck: {
+            screen: AddDeck,
             navigationOptions
         }
     },

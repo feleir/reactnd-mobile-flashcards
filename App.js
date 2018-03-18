@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
@@ -7,7 +7,6 @@ import thunk from 'redux-thunk';
 import decksReducer from './reducers'
 
 import Navigator from './components/Navigator'
-import AppStatusBar from './components/AppStatusBar'
 import { setLocalNotification } from './utils/notifications'
 
 const store = createStore(
@@ -17,6 +16,8 @@ const store = createStore(
 
 export default class App extends React.Component {
   componentDidMount() {
+    StatusBar.setHidden(true)
+
     const today = new Date();
     today.setMinutes(today.getMinutes() + 1);
 
@@ -27,7 +28,6 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <AppStatusBar barStyle='light-content' backgroundColor="#5E8D48" />
           <Navigator />
         </View>
       </Provider>
