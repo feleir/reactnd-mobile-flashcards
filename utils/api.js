@@ -15,7 +15,7 @@ const fetchDecks = () => {
 const addOrUpdateDeck = (deck) => {
     return AsyncStorage.getItem(DECKS_STORAGE_KEY)
         .then(results => {
-            const previousDecks = results ? JSON.parse(results) : {};
+            const decks = results ? JSON.parse(results) : {};
             const newDecks = {
                 ...decks,
                 [deck.title]: deck

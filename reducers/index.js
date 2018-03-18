@@ -6,7 +6,7 @@ function decks(state = {}, action) {
       return action.decks
     case ADD_OR_UPDATE_DECK:
       const { deck } = action
-      const { title } = action.deck
+      const { title } = deck
       return {
           ...state,
           [title]: deck

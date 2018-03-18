@@ -25,7 +25,7 @@ class Decks extends Component {
                     renderItem={
                         ({item}) => <ListItemView 
                             deck={item}
-                            onPress={() => navigation.navigate('Deck', { item })} 
+                            onPress={() => navigation.navigate('Deck', { deck: item })} 
                         />
                     }
                     keyExtractor={(deck, index) => deck.title}
