@@ -1,20 +1,18 @@
+# Mobile flashcards Project
 
-## Prerequisites/Requirements
+This is an implementation of the Mobile FlashCards project for Udacity's React developer Nanodegree.
+Allows users to study collections of flashcards. The app will allow users to create different categories of flashcards called "decks", add flashcards to those decks, then take quizzes on those decks.
 
-   - Xcode
+As an extra to the requirements the list view is swipeable, using react-native-swipeable module.
+   - Swipe left to start a quiz.
+   - Swipe right to delete the quiz.
 
-   - Android SDK
-
+# Prerequisites/Requirements
    - Node (v6+)
-
    - Yarn
-
    - Expo IDE or create-react-native-app
 
-
-## Installation
-
-Assuming all Prerequisites are satisfied, you just need the following commands to install & start the app :
+# Setup
 
 ```js
 yarn install
@@ -29,18 +27,10 @@ yarn start
 - Press i to open iOS emulator.
 - Press q to display QR code and be able to work with real devices by scanning this QR code through EXPO mobile app.
 
-# Contributing
+# Tested
 
-- Fork it!
-- Create your feature branch: `git checkout -b my-new-feature`
-- Make sure all unit-tests are passed `yarn test`
-- Add your name to `package.json` contributors section.
-- Commit your changes: `git commit -am 'Add some feature'``
-- Push to the branch: `git push origin my-new-feature`
-- And we welcome 🎉 your pull request :D
+The project was tested on the iOS emulator and a physical iOS device (iphone 8)
 
+# License
 
-
-# LICENSE
-
-GPL-3.0
+This project has been created in accordance with Udacity's honor code, https://udacity.zendesk.com/hc/en-us/articles/210667103-What-is-the-Udacity-Honor-Code-, feel free to check it as help for your own project but never to copy/paste it.
