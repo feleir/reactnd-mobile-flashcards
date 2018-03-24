@@ -6,7 +6,6 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import styles from './styles'
 import { green, white, red } from '../../utils/colors'
 
-
 export default ListItemView = ({ deck, onPress, onDelete, onStartQuiz }) => {
     const isIOS = Platform.OS === 'ios'
     const { title, questions } = deck 
