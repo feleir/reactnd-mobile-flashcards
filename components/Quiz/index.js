@@ -12,7 +12,7 @@ const initialState = {
   isOver: false,
   index: 0,
   correctAnswersNumber: 0
-};
+}
 
 class Quiz extends Component {
   static propTypes = {
@@ -24,7 +24,7 @@ class Quiz extends Component {
 
   static navigationOptions = () => ({ title: 'Quiz' })
 
-  state = initialState;
+  state = initialState
 
   handleAnswer = isCorrect => {
     this.setState((prevState, props) => {
@@ -38,7 +38,7 @@ class Quiz extends Component {
         tomorrow.setMinutes(0)
 
         clearLocalNotification()
-          .then(() => setLocalNotification(tomorrow));
+          .then(() => setLocalNotification(tomorrow))
       }
 
       return {
@@ -49,7 +49,7 @@ class Quiz extends Component {
     })
   }
 
-  restart = () => this.setState(initialState);
+  restart = () => this.setState(initialState)
 
   render() {
     const { questions, navigation } = this.props
@@ -87,7 +87,7 @@ class Quiz extends Component {
             length={questions.length}
         />
       </View>
-    );
+    )
   }
 }
 
@@ -97,4 +97,4 @@ const mapStateToProps = (state, { navigation }) => {
     return { questions }  
 }
 
-export default connect(mapStateToProps)(Quiz);
+export default connect(mapStateToProps)(Quiz)

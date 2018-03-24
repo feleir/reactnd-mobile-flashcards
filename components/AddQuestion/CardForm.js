@@ -5,7 +5,7 @@ import t from 'tcomb-form-native'
 
 import { styles, formStyles } from './styles'
 
-const QuestionModel = t.struct({
+const CardModel = t.struct({
     question: t.String,
     answer: t.String
 })
@@ -32,11 +32,12 @@ const options = {
     }
 }
 
-export default class QuestionForm extends Component {
+export default class CardForm extends Component {
     submit = () => {
         const formValue = this._form.getValue()
         if (formValue) {
             const { question, answer } = formValue
+
             this.props.onSubmit({ question, answer })
         }        
     }
@@ -45,7 +46,7 @@ export default class QuestionForm extends Component {
         return (
             <View style={styles.container}>
                 <Form 
-                    type={QuestionModel} 
+                    type={CardModel} 
                     ref={c => this._form = c}
                     options={options}
                 />

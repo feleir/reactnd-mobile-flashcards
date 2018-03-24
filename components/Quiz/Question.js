@@ -13,7 +13,7 @@ export default class Question extends Component {
         this.setState(() => ({ showQuestion: true }))
     }
     flipCard = () => {
-        this.setState(state => ({ showQuestion: !state.showQuestion }));
+        this.setState(state => ({ showQuestion: !state.showQuestion }))
     }
 
     render() {

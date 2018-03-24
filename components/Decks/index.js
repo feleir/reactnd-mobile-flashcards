@@ -8,7 +8,7 @@ import { white } from '../../utils/colors'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchDecks } from '../../actions'
+import { getDecks, deleteDeck } from '../../actions'
 
 
 class Decks extends Component {
@@ -18,11 +18,11 @@ class Decks extends Component {
      })
 
     componentDidMount() {
-        this.props.fetchDecks()
+        this.props.getDecks()
     }
 
     render = () => {
-        const { decks, navigation } = this.props
+        const { decks, navigation, deleteDeck } = this.props
 
         return (
             <View>
@@ -33,6 +33,7 @@ class Decks extends Component {
                         ({item}) => <ListItemView 
                             deck={item}
                             onPress={() => navigation.navigate('Deck', { deck: item })} 
+                            onDelete={(title) => deleteDeck(title)}
                         />
                     }
                     keyExtractor={(deck, index) => deck.title}
@@ -56,7 +57,7 @@ const mapStateToProps = (state, { navigation }) =>  {
     }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ fetchDecks }, dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators({ getDecks, deleteDeck }, dispatch)
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Decks)

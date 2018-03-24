@@ -45,7 +45,7 @@ const setLocalNotification = (time) => {
                     return
                 }
 
-                Notifications.cancelAllScheduledNotificationsAsync();
+                Notifications.cancelAllScheduledNotificationsAsync()
                 scheduleNotification(time)  
                 AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true))
             })

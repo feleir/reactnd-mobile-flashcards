@@ -1,10 +1,17 @@
-import { ADD_OR_UPDATE_DECK, RECEIVE_DECKS } from '../actions'
+import { GET_DECKS, 
+  GET_DECK, 
+  ADD_CARD_TO_DECK, 
+  ADD_DECK, 
+  DELETE_DECK } from '../actions'
 
 function decks(state = {}, action) {
   switch (action.type) {
-    case RECEIVE_DECKS:
+    case GET_DECKS:
+    case DELETE_DECK:
       return action.decks
-    case ADD_OR_UPDATE_DECK:
+    case GET_DECK:
+    case ADD_DECK:
+    case ADD_CARD_TO_DECK:
       const { deck } = action
       const { title } = deck
       return {
@@ -12,7 +19,7 @@ function decks(state = {}, action) {
           [title]: deck
       }
     default:
-      return state;
+      return state
   }
 }
 

@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View, StatusBar } from 'react-native'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk'
 
 import decksReducer from './reducers'
 
@@ -18,10 +18,10 @@ export default class App extends React.Component {
   componentDidMount() {
     StatusBar.setHidden(true)
 
-    const today = new Date();
-    today.setMinutes(today.getMinutes() + 1);
+    const today = new Date()
+    today.setMinutes(today.getMinutes() + 1)
 
-    setLocalNotification(today);
+    setLocalNotification(today)
   }
 
   render() {
@@ -31,7 +31,7 @@ export default class App extends React.Component {
           <Navigator />
         </View>
       </Provider>
-    );
+    )
   }
 }
 

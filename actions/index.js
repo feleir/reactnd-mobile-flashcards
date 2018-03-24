@@ -1,27 +1,66 @@
 import * as api from '../utils/api'
 
-export const RECEIVE_DECKS = 'RECEIVE_DECKS'
-export const ADD_OR_UPDATE_DECK = 'ADD_OR_UPDATE_DECK'
+export const GET_DECKS = 'GET_DECKS'
+export const GET_DECK = 'GET_DECK'
+export const ADD_CARD_TO_DECK = 'ADD_CARD_TO_DECK'
+export const ADD_DECK = 'ADD_DECK'
+export const DELETE_DECK = 'DELETE_DECK'
 
-export function fetchDecks() {
+export function getDecks() {
     return dispatch => {
-        return api.fetchDecks()
+        return api.getDecks()
             .then(decks => {
                 dispatch({
-                    type: RECEIVE_DECKS,
+                    type: GET_DECKS,
                     decks
                 })
             })
     }
 }
 
-export function addOrUpdateDeck(deck) {
+export function getDeck() {
     return dispatch => {
-        return api.addOrUpdateDeck(deck)
-            .then(() => {
+        return api.getDeck()
+            .then(deck => {
                 dispatch({
-                    type: ADD_OR_UPDATE_DECK,
+                    type: GET_DECK,
                     deck
+                })
+            })
+    }
+}
+
+export function addCardToDeck(question) {
+    return dispatch => {
+        return api.addCardToDeck(question)
+            .then((deck) => {
+                dispatch({
+                    type: ADD_CARD_TO_DECK,
+                    deck
+                })
+            })
+    }
+}
+
+export function addDeck(title) {
+    return dispatch => {
+        return api.addDeck(title)
+            .then((deck) => {
+                dispatch({
+                    type: ADD_DECK,
+                    deck
+                })
+            })
+    }
+}
+
+export function deleteDeck(title) {
+    return dispatch => {
+        return api.deleteDeck(title)
+            .then((decks) => {
+                dispatch({
+                    type: DELETE_DECK,
+                    decks
                 })
             })
     }

@@ -8,7 +8,7 @@ import { purple } from '../../utils/colors'
 
 const Deck = props => {
     const { deck, navigation } = props;
-    const { questions } = deck;
+    const { title, questions } = deck;
   
     return (
       <View style={styles.view}>
@@ -18,7 +18,7 @@ const Deck = props => {
         </View>
         <Button
           title="Add Question"
-          onPress={() => navigation.navigate('AddQuestion', { deck })}
+          onPress={() => navigation.navigate('AddQuestion', { title })}
         />
         <View style={styles.separatedButton}>
           <Button

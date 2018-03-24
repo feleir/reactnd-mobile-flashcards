@@ -2,31 +2,29 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import QuestionForm from './QuestionForm'
-import { addOrUpdateDeck } from '../../actions'
+import CardForm from './CardForm'
+import { addCardToDeck } from '../../actions'
 
 class AddCard extends Component {
-    submit = (question) => {
-        const { deck, addOrUpdateDeck, navigation } = this.props
-        const updatedDeck = { ... deck }
-        updatedDeck.questions.push(question)
-        addOrUpdateDeck(updatedDeck)
+    submit = ({ question, answer }) => {
+        const { title, addCardToDeck, navigation } = this.props
+        addCardToDeck({title, question, answer })
         navigation.goBack()
     }
 
     render() {
         return (
-            <QuestionForm onSubmit={(question) => this.submit(question)} />
+            <CardForm onSubmit={(question) => this.submit(question)} />
         )
     }
 }
 
 function mapStateToProps(state, { navigation }) {
-    const { deck } = navigation.state.params;
+    const { title } = navigation.state.params
 
-    return { deck };
+    return { title }
 }
   
-const mapDispatchToProps = (dispatch) => bindActionCreators({ addOrUpdateDeck }, dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators({ addCardToDeck }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddCard);  
+export default connect(mapStateToProps, mapDispatchToProps)(AddCard)

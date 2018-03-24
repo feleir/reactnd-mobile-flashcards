@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import DeckForm from './DeckForm'
-import { addOrUpdateDeck } from '../../actions'
+import { addDeck } from '../../actions'
 
 class AddDeck extends Component {
     submit = (title) => {
-        const { addOrUpdateDeck, navigation } = this.props
-        addOrUpdateDeck({ title, questions: [] })
+        const { addDeck, navigation } = this.props
+        addDeck(title)
         navigation.goBack()
     }
 
@@ -20,11 +20,11 @@ class AddDeck extends Component {
 }
 
 function mapStateToProps(state, { navigation }) {
-    const { deck } = navigation.state.params;
+    const { deck } = navigation.state.params
 
-    return { deck };
+    return { deck }
 }
   
-const mapDispatchToProps = (dispatch) => bindActionCreators({ addOrUpdateDeck }, dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators({ addDeck }, dispatch)
 
-export default connect(null, mapDispatchToProps)(AddDeck);  
+export default connect(null, mapDispatchToProps)(AddDeck)

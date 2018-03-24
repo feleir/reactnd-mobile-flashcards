@@ -22,5 +22,10 @@ export default styles = StyleSheet.create({
     },
     addButton: {
       marginRight: 10
+    },
+    rightSwipeItem: {
+      flex: 1,
+      justifyContent: 'center',
+      paddingLeft: 20
     }
   })
