@@ -7,7 +7,7 @@ import styles from './styles'
 import { green, white, red } from '../../utils/colors'
 
 
-export default ListItemView = ({ deck, onPress, onDelete }) => {
+export default ListItemView = ({ deck, onPress, onDelete, onStartQuiz }) => {
     const isIOS = Platform.OS === 'ios'
     const { title, questions } = deck 
     return (
@@ -19,14 +19,22 @@ export default ListItemView = ({ deck, onPress, onDelete }) => {
                     </View>
                 )
             }
+            leftContent={(
+                    <View style={[styles.leftSwipeItem, { backgroundColor: green }]}>
+                        {isIOS && <Ionicons name='ios-checkmark' size={30} color={white} />}
+                        {!isIOS && <FontAwesome name='check' size={30} color={white} />}
+                    </View>
+                )
+            }
             onRightActionRelease={() => onDelete(title)}
+            onLeftActionRelease={() => onStartQuiz(questions)}
         >
             <TouchableOpacity 
                 style={styles.listItem}
                 onPress={() => onPress()}
             >
                 <Text style={styles.listItemTitle}>{title}</Text>
-                <Text style={styles.listItemQuestionCount}>{questions} cards.</Text>
+                <Text style={styles.listItemQuestionCount}>{questions.length} cards.</Text>
             </TouchableOpacity>
         </Swipeable>
     )

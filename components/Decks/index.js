@@ -34,6 +34,7 @@ class Decks extends Component {
                             deck={item}
                             onPress={() => navigation.navigate('Deck', { deck: item })} 
                             onDelete={(title) => deleteDeck(title)}
+                            onStartQuiz={(questions) => navigation.navigate('Quiz', { questions })}
                         />
                     }
                     keyExtractor={(deck, index) => deck.title}
@@ -48,7 +49,7 @@ const mapStateToProps = (state, { navigation }) =>  {
         return {
             id: id,
             title: quiz.title,
-            questions: quiz.questions.length
+            questions: quiz.questions
         }
     })
     return {

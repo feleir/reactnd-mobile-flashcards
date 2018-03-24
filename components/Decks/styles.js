@@ -27,5 +27,11 @@ export default styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       paddingLeft: 20
+    },
+    leftSwipeItem: {
+      flex: 1,
+      alignItems: 'flex-end',
+      justifyContent: 'center',
+      paddingRight: 20
     }
   })
